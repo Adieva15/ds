@@ -1,24 +1,16 @@
+# === НАСТРОЙКИ ===
 import os
-from dotenv import load_dotenv
-bot = '7971545933:AAHJpI7CzpfvlYVF5y9liUqx4RyjDMJbmPA'
-load_dotenv()
 
-class Config:
-    # Ключи из переменных окружения
-    BOT_TOKEN = os.getenv(bot)
-    DEEPINFRA_API_KEY = os.getenv('DEEPINFRA_API_KEY')
-    DEEPINFRA_API_URL = "https://api.deepinfra.com/v1/inference/mistralai/Mixtral-8x7B-Instruct-v0.1"
+# Токены
+AI_TOKEN = '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'
+BOT_TOKEN = '7971545933:AAHJpI7CzpfvlYVF5y9liUqx4RyjDMJbmPA'
 
-    # Запасные ответы если ИИ не работает
-    FALLBACK_RESPONSES = {
-        'workout_reaction': [
-            "Отличная работа! Ты становишься сильнее с каждой тренировкой! 💪",
-            "Прекрасно! Регулярность - ключ к успеху в фитнесе! 🔑",
-            "Молодец! Помни: даже небольшие тренировки ведут к большим результатам! 🌟",
-        ],
-        'advice': [
-            "Попробуй добавить разнообразия в свои тренировки! 🔄",
-            "Не забывай про восстановление - это важно для прогресса! 🛌",
-            "Слушай свое тело и корректируй нагрузку при необходимости! 👂",
-        ]
-    }
+# Настройки OpenAI
+OPENAI_BASE_URL = "https://openrouter.ai/api/v1"
+OPENAI_MODEL = "x-ai/grok-4.1-fast:free"
+
+# Настройки логирования
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
