@@ -1,0 +1,7 @@
+
+python-dotenv
+black
+flake8
+openai
+python-telegram-bot
+
