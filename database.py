@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Text, Boolean, Float
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from datetime import datetime, timedelta
+from sqlalchemy.orm import declarative_base, sessionmaker
+from datetime import datetime
 from config import DATABASE_URL
 
 Base = declarative_base()
@@ -57,14 +56,38 @@ class UserPreferences(Base):
 
 
 def init_db():
-    """Инициализация базы данных"""
+    """Инициализация базы данных - создание всех таблиц"""
     Base.metadata.create_all(bind=engine)
+    print("✅ Таблицы базы данных созданы")
 
 
 def get_db():
-    """Получение сессии БД"""
+    """Генератор сессии БД для зависимостей"""
     db = SessionLocal()
     try:
         yield db
+    finally:
+        db.close()
+
+
+# Утилиты для работы с БД
+def get_or_create_user(telegram_id: int, username: str = None, first_name: str = None):
+    """Получить пользователя или создать нового"""
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.telegram_id == telegram_id).first()
+        if not user:
+            user = User(
+                telegram_id=telegram_id,
+                username=username,
+                first_name=first_name
+            )
+            db.add(user)
+            db.commit()
+            db.refresh(user)
+        return user
+    except Exception as e:
+        db.rollback()
+        raise e
     finally:
         db.close()

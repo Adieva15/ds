@@ -1,5 +1,5 @@
 # === ПРОСТАЯ ПАМЯТЬ ===
-user_data = {}  # Храним в оперативке: {user_id: {"workouts": 5, "last_workout": "утро"}}
+user_data = {}  # Храним в оперативке: {user_id: {"workouts": 5, "goals": ["цель1", "цель2"]}}
 
 def get_user_data(user_id):
     """Получить данные пользователя, создать если нет"""
@@ -23,3 +23,7 @@ def add_user_goal(user_id, goal):
     if "goals" not in user_info:
         user_info["goals"] = []
     user_info["goals"].append(goal)
+
+def get_user_goals(user_id):
+    """Получить цели пользователя"""
+    return get_user_data(user_id).get("goals", ["быть здоровым"])
