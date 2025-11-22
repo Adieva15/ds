@@ -2,7 +2,7 @@
 import os
 
 # Токены
-AI_TOKEN = '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'
+AI_TOKEN = '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'
 BOT_TOKEN = '7971545933:AAHJpI7CzpfvlYVF5y9liUqx4RyjDMJbmPA'
 
 # Настройки OpenAI
