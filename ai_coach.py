@@ -1,6 +1,6 @@
 from openai import OpenAI
 from config import AI_TOKEN, OPENAI_BASE_URL, OPENAI_MODEL
-from user_data import get_user_data  # ⬅️ Импортируем из user_data.py
+from user_data import get_user_data  # ⬅ Импортируем из user_data.py
 import random
 
 async def ai_fitness_coach(user_message, user_id=None):

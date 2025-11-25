@@ -1,9 +1,11 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from ai_coach import ai_fitness_coach
+
 from user_data import update_user_workouts, get_user_workouts, add_user_goal  # ⬅️ Импортируем из user_data.py
 from keyboards import main_keyboard, main_keyboard_with_webapp
 from config import WEB_APP_URL
+
 import json
 
 
