@@ -5,7 +5,7 @@ import random
 import uuid
 import requests
 import json
-
+from gigachat import Gigachat
 
 # функция для получения токена
 def get_gigachat_token():

@@ -2,12 +2,15 @@
 import os
 import logging
 import base64
+
+
 BOT_TOKEN = '7353196699:AAG8KiNUIgeuQe1JwYsc5P1FOFYoS1JSHSA'
 
 # Настройки OpenAI
 # OPENAI_BASE_URL = "https://openrouter.ai/api/v1"
 OPENAI_BASE_URL="http://localhost:1234/v1"
-OPENAI_MODEL ='local-model'
+OPENAI_MODEL ='GigaChat 2 Lite'
+
 # Настройки логирования
 import logging
 logging.basicConfig(level=logging.INFO)
