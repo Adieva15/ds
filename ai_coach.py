@@ -2,16 +2,53 @@ from openai import OpenAI
 from config import AI_TOKEN, OPENAI_BASE_URL, OPENAI_MODEL, logger
 from user_data import get_user_data
 import random
+import uuid
+import requests
+import json
 
+
+# функция для получения токена
+def get_gigachat_token():
+    url = "https://ngw.devices.sberbank.ru:9443/api/v2/oauth"
+
+    payload={
+      'scope': 'GIGACHAT_API_PERS',
+        'grant_type':'client_credentials'
+    }
+
+    headers = {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/json',
+      'RqUID': str(uuid.uuid4()),
+      'Authorization': f'Basic {AI_TOKEN}'
+    }
+    try:
+        response = requests.request("POST", url, headers=headers, data=payload, verify=True)
+        response.raise_for_status()
+        token_data = response.json()
+        return token_data['access_token']
+
+    except requests.exceptions.RequestException as e:
+        print(f"Ошибка получения токена: {e}")
+        if hasattr(e, 'response') and e.response is not None:
+            print(f"Статус код: {e.response.status_code}")
+            print(f"Текст ответа: {e.response.text}")
+        return None
 
 async def ai_fitness_coach(user_message, user_id=None, function_type = None):
-    client = OpenAI(base_url=OPENAI_BASE_URL, api_key=AI_TOKEN)
+    access_token = get_gigachat_token()
+    if not access_token:
+        return "Ошибка подключения к GigaChat API"
+    client = OpenAI(base_url=OPENAI_BASE_URL,
+                    api_key=access_token)
+
     user_context = get_user_data(user_id)
     workouts_count = user_context.get('workouts', 0)
     goals = user_context.get('goals', ['стать сильнее'])
 
     if function_type is None:
         function_type = detect_function_type(user_message);
+
     function_instructions = {
         "analyze": "Проанализируй тренировки пользователя. Задай вопросы о тренировках или проанализируй прогресс. Не хвали просто так.",
         "advice": "Дай персональный совет. Спроси о проблемах и дай конкретные рекомендации. Не хвали без причины.",
@@ -40,7 +77,7 @@ async def ai_fitness_coach(user_message, user_id=None, function_type = None):
         )
         return response.choices[0].message.content
     except Exception as e:
-        logger.error(f"Ошибка AI: {e}")
+        logger.error(f"Ошибка GigaChat API: {e}")
         return get_fallback_response(function_type)
 
 
