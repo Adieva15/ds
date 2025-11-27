@@ -2,12 +2,15 @@
 import os
 
 BOT_TOKEN='7353196699:AAG8KiNUIgeuQe1JwYsc5P1FOFYoS1JSHSA'
-AI_TOKEN='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'
+
+
+# === OLLAMA ===
+AI_TOKEN='24cde5322ac74f469cf1e2de3f3ec963.ZpmIu5U38dnJxyBuj0fPRVTS'
 
 # Настройки OpenAI
-OPENAI_BASE_URL = "https://openrouter.ai/api/v1"
+OPENAI_BASE_URL = "https://ollama.com"
 
-OPENAI_MODEL = "qwen/qwen3-embedding-8b"
+OPENAI_MODEL = "qwen3vl"
 
 DATABASE_URL='sqlite:///fitness_bot.db'
 
