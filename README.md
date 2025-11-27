@@ -26,8 +26,8 @@ Spovatar - это интеллектуальный Telegram-бот, которы
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/ваш-username/spovatar-bot.git
-cd spovatar-bot
+git clone https://github.com/Adieva15.git
+cd ds
 ```
 
 ### 2. Установка зависимостей
