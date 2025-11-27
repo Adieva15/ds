@@ -1,25 +1,26 @@
 from flask import Flask, request, jsonify
 import os
-from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+import sys
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 app = Flask(__name__)
-keyboard = InlineKeyboardMarkup([
-    [InlineKeyboardButton("📱 Открыть приложение", web_app=WebAppInfo(url="https://ваш-сервер.com"))]
-])
+
 # Используем ВСЕ ваши существующие модули!
 from ai_coach import ai_fitness_coach
 from user_data import get_user_data, update_user_workouts
 
+@app.route('/')
+def index():
+    """Главная страница мини-приложения"""
+    return open('templates/index.html', 'r', encoding='utf-8').read()
 
 @app.route('/ai-chat', methods=['POST'])
 def ai_chat():
     data = request.json
     user_message = data.get('message')
-    user_id = data.get('user_id', 1)  # Берем из Telegram
-
-    # Используем вашу готовую функцию!
-    response = await ai_fitness_coach(user_message, user_id)
+    user_id = data.get('user_id', 1)
+    response = ai_fitness_coach(user_message, user_id)
     return jsonify({'response': response})
 
 
