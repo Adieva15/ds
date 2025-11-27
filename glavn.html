@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spovatar</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 20px; }
+        .btn { background: #0088cc; color: white; padding: 15px; margin: 10px 0; border-radius: 10px; text-align: center; }
+        .message { background: #f0f0f0; padding: 10px; margin: 5px 0; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Все 4 экрана в одном файле -->
+        <!-- Переключаются через JavaScript -->
+    </div>
+    <script>
+        // Простейшая логика переключения экранов
+        function showScreen(screenName) {
+            // Прячем все, показываем нужный
+        }
+
+        // Отправка сообщения ИИ
+        async function sendToAI(message) {
+            const response = await fetch('/ai-chat', {
+                method: 'POST',
+                body: JSON.stringify({message: message})
+            });
+            return await response.json();
+        }
+    </script>
+</body>
+</html>

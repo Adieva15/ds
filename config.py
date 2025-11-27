@@ -10,7 +10,7 @@ AI_TOKEN='24cde5322ac74f469cf1e2de3f3ec963.ZpmIu5U38dnJxyBuj0fPRVTS'
 # Настройки OpenAI
 OPENAI_BASE_URL = "https://ollama.com"
 
-OPENAI_MODEL = "qwen3vl"
+OPENAI_MODEL = "qwen:0.5b"
 
 DATABASE_URL='sqlite:///fitness_bot.db'
 
