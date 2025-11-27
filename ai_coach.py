@@ -5,7 +5,7 @@ import random
 import uuid
 import requests
 import json
-from gigachat import Gigachat
+# from gigachat import Gigachat
 
 # функция для получения токена
 def get_gigachat_token():
@@ -23,7 +23,7 @@ def get_gigachat_token():
       'Authorization': f'Basic {AI_TOKEN}'
     }
     try:
-        response = requests.request("POST", url, headers=headers, data=payload, verify=True)
+        response = requests.post(url, headers=headers, data=payload, verify=True)
         response.raise_for_status()
         token_data = response.json()
         return token_data['access_token']
