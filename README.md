@@ -232,7 +232,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Если у вас есть вопросы или предложения:
 
-1. Откройте [Issue](https://github.com/ваш-username/spovatar-bot/issues)
+1. Откройте [Issue](https://github.com/Adieva15/ds/issues)
 2. Напишите в Telegram: [@dineadi]
 3. Email: adievadine@gmail.com
 
