@@ -26,9 +26,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def handle_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    user = update.effective_user
 
     # Увеличиваем счетчик тренировок
-    workouts_count = update_user_workouts(user_id)
+    workouts_count = update_user_workouts(user_id,
+        workout_type="общая тренировка",
+        notes="Тренировка отмечена через кнопку")
 
     # ИИ анализирует тренировку
     response = await ai_fitness_coach(
@@ -37,6 +40,7 @@ async def handle_workout(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     await update.message.reply_text(f"✅ Записал тренировку!\n\n{response}")
+
 
 async def handle_progress(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -50,6 +54,7 @@ async def handle_progress(update: Update, context: ContextTypes.DEFAULT_TYPE):
     progress_text = f"📊 Твои тренировки: {workouts}\n\n{response}"
     await update.message.reply_text(progress_text)
 
+
 async def handle_advice(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
@@ -60,6 +65,7 @@ async def handle_advice(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(f"💬 Совет тренера:\n\n{response}")
 
+
 async def handle_motivation(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
@@ -69,6 +75,7 @@ async def handle_motivation(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     await update.message.reply_text(f"🌟 Мотивация:\n\n{response}")
+
 
 async def handle_goal(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -104,8 +111,19 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка любых текстовых сообщений через ИИ"""
     user_id = update.effective_user.id
     user_text = update.message.text
+    user = update.effective_user
 
-    # Анализируем сообщение через ИИ
-    response = await ai_fitness_coach(user_text, user_id)
+    if context.user_data.get('waiting_for_goal'):
+        # Пользователь отправляет цель
+        try:
+            add_user_goal(user_id, user_text)
+            response = f"🎯 Отлично! Цель '{user_text}' сохранена!\n\nТеперь давай работать над её достижением! 💪"
+            context.user_data['waiting_for_goal'] = False
+        except Exception as e:
+            response = "❌ Не удалось сохранить цель. Попробуй еще раз."
+            context.user_data['waiting_for_goal'] = False
+    else:
+        # Обычное сообщение - обрабатываем через ИИ
+        response = await ai_fitness_coach(user_text, user_id)
 
     await update.message.reply_text(response)
