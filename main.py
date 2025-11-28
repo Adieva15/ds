@@ -10,7 +10,7 @@ from telegram import Update, WebAppInfo, InlineKeyboardMarkup, InlineKeyboardBut
 
 async def web_app_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton("Открыть тренера", web_app=WebAppInfo(url="https://your-domain.com"))
+        InlineKeyboardButton("Открыть тренера", web_app=WebAppInfo(url=WEB_APP_URL))
     ]])
     await update.message.reply_text("Запусти мини-приложение:", reply_markup=keyboard)
 
