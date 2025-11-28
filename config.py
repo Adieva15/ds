@@ -11,6 +11,7 @@ OPENAI_MODEL = "prime-intellect/intellect-3"
 
 DATABASE_URL='sqlite:///fitness_bot.db'
 
+WEB_APP_URL = 'https://Adievadine.pythonanywhere.com'
 # Настройки логирования
 import logging
 logging.basicConfig(level=logging.INFO)
