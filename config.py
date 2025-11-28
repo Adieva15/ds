@@ -1,16 +1,14 @@
-# === НАСТРОЙКИ ===
+
 import os
 
 BOT_TOKEN='7353196699:AAG8KiNUIgeuQe1JwYsc5P1FOFYoS1JSHSA'
 
-
-# === OLLAMA ===
-AI_TOKEN='24cde5322ac74f469cf1e2de3f3ec963.ZpmIu5U38dnJxyBuj0fPRVTS'
+AI_TOKEN='sk-or-v1-f3ccfb91fd625346fc1c0765584185a7201555ab4a5d0117b4deaa24de86978bS'
 
 # Настройки OpenAI
-OPENAI_BASE_URL = "https://ollama.com"
+OPENAI_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-OPENAI_MODEL = "qwen:0.5b"
+OPENAI_MODEL = "prime-intellect/intellect-3"
 
 DATABASE_URL='sqlite:///fitness_bot.db'
 
