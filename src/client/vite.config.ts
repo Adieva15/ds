@@ -7,5 +7,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: {allowedHosts: ['https://palladic-cheree-noncommendably.ngrok-free.dev']}
+  server: {allowedHosts: ['palladic-cheree-noncommendably.ngrok-free.dev']} // del hhttps://
 })
