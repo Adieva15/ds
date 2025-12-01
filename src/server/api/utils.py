@@ -1,6 +1,7 @@
 from fastapi import Request, HTTPException
 from aiogram.utils.web_app import WebAppInitData, safe_parse_webapp_init_data
 from server.db.models import User
+#from db.models.user import User  # Исправлен импорт
 from config_reader import config
 
 
@@ -21,6 +22,7 @@ def auth(request: Request) -> WebAppInitData:
 
 async def check_user(user_id: int) -> User:
     user = await User.filter(id=user_id).filter()
+    #user = await User.filter(telegram_id=user_id).first()
     if not user:
         raise HTTPException(401, {"error":"Unauthorized"})
     return user
