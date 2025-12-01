@@ -1,11 +1,9 @@
-import tailwindcss from '@tailwindcss/vite'
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: {allowedHosts: ['palladic-cheree-noncommendably.ngrok-free.dev']} // del hhttps://
+  server:{allowedHosts:["https://spovatar-miniapp.loca.lt"]}
 })

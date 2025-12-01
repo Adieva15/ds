@@ -18,9 +18,12 @@ class Config(BaseSettings):
     DB_URL:SecretStr
 
     #ccылка на бэкенд
-    WEBHOOK_URL: str ="https://qdsnn-85-192-49-179.a.free.pinggy.link"
+    # WEBHOOK_URL: str ="https://qdsnn-85-192-49-179.a.free.pinggy.link"
+    WEBHOOK_URL: str ="https://salty-snakes-move.loca.lt"
+
     # ссылка на фронтенд
-    WEBAPP_URL: str="https://palladic-cheree-noncommendably.ngrok-free.dev"
+    # WEBAPP_URL: str="https://palladic-cheree-noncommendably.ngrok-free.dev"
+    WEBAPP_URL: str="https://spovatar-miniapp.loca.lt"
     #на каком хосту и порту работает fastapi
     APP_HOST:str="localhost"
     APP_PORT:int = 8080
