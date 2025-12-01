@@ -4,6 +4,8 @@ from aiogram.filters import CommandStart
 
 from bot.keyboards import main_markup
 from db import User
+#from db.models.user import User  # Исправлен импорт
+
 
 router = Router(name='common')
 
