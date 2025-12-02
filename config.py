@@ -2,12 +2,15 @@
 import os
 
 BOT_TOKEN=''
-AI_TOKEN='sk-or-v1-f3ccfb91fd625346fc1c0765584185a7201555ab4a5d0117b4deaa24de86978bS'
+AI_TOKEN=''
 
 # Настройки OpenAI
-OPENAI_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
+# OPENAI_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-OPENAI_MODEL = "prime-intellect/intellect-3"
+# OPENAI_MODEL = "prime-intellect/intellect-3"
+GIGACHAT_TOKEN = "MDE5YWJjODEtNmNhOC03NjI4LTg5YWMtMzJiZjMxNjA2NDcyOmVkOWVjMDY3LTRiNzEtNDM0ZS1iM2M4LTg4YTQxOTY2MTk0Zg=="  # Полученный токен или путь к файлу с токеном
+GIGACHAT_SCOPE = "GIGACHAT_API_PERS"  # Область доступа
+GIGACHAT_MODEL = "GigaChat-2-Max"
 
 DATABASE_URL='sqlite:///fitness_bot.db'
 

@@ -1,4 +1,5 @@
 python-telegram-bot
-openai
+langchain-gigachat
+langchain-core
 sqlalchemy
 flask

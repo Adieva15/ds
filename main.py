@@ -1,5 +1,5 @@
 from telegram.ext import  Application, CommandHandler, ContextTypes, MessageHandler, filters
-from config import BOT_TOKEN, logger
+from config import BOT_TOKEN, logger, WEB_APP_URL
 from handlers import (
     start, handle_help, handle_workout, handle_progress,
     handle_advice, handle_motivation, handle_goal, handle_message
