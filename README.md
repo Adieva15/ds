@@ -36,11 +36,6 @@ cd ds
 pip install -r requirements.txt
 ```
 
-Если файла requirements.txt нет, установите зависимости вручную:
-
-```bash
-pip install python-telegram-bot openai
-```
 
 ## Настройка
 
