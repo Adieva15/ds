@@ -5,9 +5,6 @@ from handlers import (
     handle_advice, handle_motivation, handle_goal, handle_message
 )
 from telegram import Update, WebAppInfo, InlineKeyboardMarkup, InlineKeyboardButton
-
-
-
 async def web_app_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([[
         InlineKeyboardButton("Открыть тренера", web_app=WebAppInfo(url=WEB_APP_URL))
