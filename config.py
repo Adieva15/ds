@@ -1,9 +1,9 @@
 
 import os
 
-BOT_TOKEN='7353196699:AAF7A1bm48TRHvFXN7ZznUfSKUr6_aJM-cE'
+BOT_TOKEN=''
 
-GIGACHAT_TOKEN = "MDE5YWJjODEtNmNhOC03NjI4LTg5YWMtMzJiZjMxNjA2NDcyOjQ0MDY1ZGFiLThiNjktNDQwZi05MGE0LTkwODViMWFmOGVkYw=="  # Полученный токен или путь к файлу с токеном
+GIGACHAT_TOKEN = ""  # Полученный токен или путь к файлу с токеном
 GIGACHAT_SCOPE = "GIGACHAT_API_PERS"  # Область доступа
 GIGACHAT_MODEL = "GigaChat-2-Max"
 
