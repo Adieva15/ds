@@ -21,7 +21,8 @@ Spovatar - это интеллектуальный Telegram-бот, которы
 
 - Python 3.8 или выше
 - Аккаунт в Telegram
-- API-ключ от OpenRouter
+- Учетные данные GigaChat API (получаются на [developers.sber.rul
+(https://developers.sber.ru/))
 
 ### 1. Клонирование репозитория
 
